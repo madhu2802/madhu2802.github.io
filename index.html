@@ -1,0 +1,492 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style>
+            @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700,800');
+@import url('https://fonts.googleapis.com/css?family=Lobster');
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alice&family=Overpass:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo:wght@400;800&display=swap');
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+.content h1, .education h1, .projects h1, .achievements h1 {
+  margin-bottom: 0.5em;
+  font-family: 'Alice', serif;
+  font-family: 'Overpass', sans-serif;
+  font-size: 5rem;
+  font-weight: bold;
+}
+p {
+  margin-bottom: 0.5em;
+  font-size: 1.6rem;
+  line-height: 1.6;
+}
+.button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 8px 25px;
+  border-radius: 4px;
+}
+.button-primary {
+  position: relative;
+  background-color: #f57e7e;
+  color: #000;
+  font-size: 1.8rem;
+  font-weight: 700;
+  transition: color 0.3s ease-in;
+  z-index: 1;
+}
+.button-primary:hover {
+  color:#f57e7e;
+  text-decoration: none;
+}
+.button-primary::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  background-color: #000;
+  border-radius: 4px;
+  opacity: 0;
+  -webkit-transform: scaleX(0.8);
+  -ms-transform: scaleX(0.8);
+  transform: scaleX(0.8);
+  transition: all 0.3s ease-in;
+  z-index: -1;
+}
+.button-primary:hover::after {
+  opacity: 1;
+  -webkit-transform: scaleX(1);
+  -ms-transform: scaleX(1);
+  transform: scaleX(1);
+}
+.overlay::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+.header-area {
+  position: relative;
+  height: 100vh;
+  background-attachment: fixed;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.banner h1 {
+    font-family: 'Exo', sans-serif;
+    font-size: 5rem;
+    padding: 2.5rem 0rem;
+    font-weight: bold;
+    color: #b20238;
+}
+.banner h2 {
+  font-family: 'Exo', sans-serif;
+  font-weight: 900;
+  font-size: 4rem;
+}
+.banner .row .homepage-content{
+    padding: 10rem;
+}
+.navbar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 0;
+  width: 100%;
+  transition: background 0.6s ease-in;
+  z-index: 99999;
+}
+.navbar .navbar-brand {
+  font-family: 'Lobster', cursive;
+  font-size: 2.5rem;
+  color: #b20238;
+}
+.navbar .navbar-toggler {
+  position: relative;
+  height: 50px;
+  width: 50px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+.navbar .navbar-toggler .menu-icon-bar {
+  position: absolute;
+  left: 15px;
+  right: 15px;
+  height: 2px;
+  background-color: #b20238;
+  opacity: 0;
+  -webkit-transform: translateY(-1px);
+  -ms-transform: translateY(-1px);
+  transform: translateY(-1px);
+  transition: all 0.3s ease-in;
+}
+.navbar .navbar-toggler .menu-icon-bar:first-child {
+  opacity: 1;
+  -webkit-transform: translateY(-1px) rotate(45deg);
+  -ms-sform: translateY(-1px) rotate(45deg);
+  transform: translateY(-1px) rotate(45deg);
+}
+.navbar .navbar-toggler .menu-icon-bar:last-child {
+  opacity: 1;
+  -webkit-transform: translateY(-1px) rotate(135deg);
+  -ms-sform: translateY(-1px) rotate(135deg);
+  transform: translateY(-1px) rotate(135deg);
+}
+.navbar .navbar-toggler.collapsed .menu-icon-bar {
+  opacity: 1;
+}
+.navbar .navbar-toggler.collapsed .menu-icon-bar:first-child {
+  -webkit-transform: translateY(-7px) rotate(0);
+  -ms-sform: translateY(-7px) rotate(0);
+  transform: translateY(-7px) rotate(0);
+}
+.navbar .navbar-toggler.collapsed .menu-icon-bar:last-child {
+  -webkit-transform: translateY(5px) rotate(0);
+  -ms-sform: translateY(5px) rotate(0);
+  transform: translateY(5px) rotate(0);
+}
+.navbar-dark .navbar-nav .nav-link {
+  position: relative;
+  color: #fff;
+  font-size: 1.6rem;
+}
+.navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link:hover {
+  color: #f57e7e;
+}
+
+.navbar.fixed-top {
+  position: fixed;
+  -webkit-animation: navbar-animation 0.6s;
+  animation: navbar-animation 0.6s;
+  background-color: rgba(245, 126, 126, .9);
+}
+.navbar.fixed-top.navbar-dark .navbar-nav .nav-link.active {
+  color: #b20238;
+}
+.navbar.fixed-top.navbar-dark .navbar-nav .nav-link::after {
+  background-color: #b20238;
+}
+.content, .projects {
+  padding: 100px 0px;
+  margin:0px 15px;
+  background-color: #fbc5c5;
+}
+.education, .achievements{
+    padding: 100px 0px;
+    margin:0px 15px;
+}
+@media screen and (max-width: 768px) {
+  .navbar-brand {
+    margin-left: 20px;
+  }
+  .navbar-nav {
+    padding: 0 20px;
+    background-color: rgba(0, 0, 0, .9);
+  }
+  .navbar.fixed-top .navbar-nav {
+    background: transparent;
+  }
+}
+@media screen and (min-width: 767px) {
+  .banner {
+    padding: 100px 150px;
+  }
+  .banner h1 {
+    font-size: 5rem;
+  }
+  .banner h2 {
+    font-size: 2rem;
+  }
+  .navbar-dark .navbar-nav .nav-link {
+    padding: 23px 23px;
+    margin: 0px 10px;
+  }
+  .navbar-dark .navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 15px;
+    left: 30%;
+    right: 30%;
+    height: 1px;
+    background-color: #b20238;
+    -webkit-transform: scaleX(0);
+    -ms-transform: scaleX(0);
+    transform: scaleX(0);
+    transition: transform 0.1s ease-in;
+  }
+  .navbar-dark .navbar-nav .nav-link:hover::after {
+    -webkit-transform: scaleX(1);
+    -ms-transform: scaleX(1);
+    transform: scaleX(1);
+  }
+}
+@-webkit-keyframes navbar-animation {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-100%);
+    -ms-transform: translateY(-100%);
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+@keyframes navbar-animation {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-100%);
+    -ms-transform: translateY(-100%);
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+.bg {
+  animation:slide 3s ease-in-out infinite alternate;
+  background-image: linear-gradient(-60deg, #febecc 50%, #feb1b7 50%);
+  bottom:0;
+  left:-50%;
+  opacity:.5;
+  position:fixed;
+  right:-50%;
+  top:0;
+  z-index:-1;
+  height:100vh;
+}
+
+.bg2 {
+  animation-direction:alternate-reverse;
+  animation-duration:4s;
+  height:100vh;
+}
+
+.bg3 {
+  animation-duration:5s;
+  height:100vh;
+}
+
+.banner {
+  background-color:rgba(255,255,255);
+  border-radius:.25em;
+  box-shadow:0 0 .25em rgba(0,0,0,.25);
+  box-sizing:border-box;
+  padding:20px;
+  margin: 20px;
+  display: flex;
+  position: relative;
+  text-align:center;
+  height: 75vh;
+}
+
+.banner .container{
+  padding: 20px;
+  margin: 20px;
+}
+
+
+@keyframes slide {
+  0% {
+    transform:translateX(-25%);
+  }
+  100% {
+    transform:translateX(25%);
+  }
+}
+
+        </style>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+        <script src="js/Profile.js"></script>
+        <title>Madhu's Profile</title>
+    </head>
+    <body>
+        <header class="header-area overlay">
+            <nav class="navbar navbar-expand-md navbar-dark">
+                <div class="container">
+                    <a href="#" class="navbar-brand" style="color: #b20238">Madhu's Portfolio</a>
+                    
+                    <div id="main-nav" class="collapse navbar-collapse">
+                        <ul class="navbar-nav ml-auto">
+                            <li><a href="#" class="nav-item nav-link active" style="color: #b20238">Home</a></li>
+                            <li><a href="#profile-page" class="nav-item nav-link" style="color: #b20238">Profile</a></li>
+                            <li><a href="#education-page" class="nav-item nav-link" style="color: #b20238">Education & Work</a></li>
+                            <li><a href="#projects-page" class="nav-item nav-link" style="color: #b20238">Projects</a></li>
+                            <li><a href="#achievements-page" class="nav-item nav-link" style="color: #b20238">Achievements</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="bg"></div>
+            <div class="bg bg2"></div>
+            <div class="bg bg3"></div>
+            <!-- <div class="content">
+            <h1>Sliding Diagonals Background Effect</h1>
+            </div> -->
+            <div class="banner">
+                <!-- <div class="container"> -->
+                    <div class="row">
+                        <div class="col-md-6 homepage-content">
+                            <h2>HELLO, I'M </h2>
+                            <h1>MADHUMITHA A</h1>
+                            <h4 style="color:dimgrey">Scholar@SAP and Work Integrated Learning Programme Student at BITS Pilani</h4>
+                            <a href="#content" class="button button-primary">View My Profile</a>
+                        </div>
+                        <div class="col-md-6">
+                            <img src="HomePage_image.webp" style="height: 100%; width: 100%; object-fit: contain;">
+                        </div>
+                    </div>
+                <!-- </div> -->
+            </div>
+        </header>
+        
+        <main id="profile-page">
+            <section id="content" class="content">
+                <div class="container">
+                    <div class="row">
+                        <h1>Profile</h1>
+                        <p>I am currently working as Scholar@SAP, Bangalore. A graduate student in Computer Science Engineering from Christ University, Bangalore. I am a hard-working individual with good academic performance.
+
+                            Being a quick learner, I have always been enthusiastic in learning new technologies. I have a strong ability to analyze a problem and give constructive solutions. I am organized and systematic towards my goals.
+                            <br><br>
+                            I would apply my theoretical knowledge and skills learnt from my university in real-life problems. I am always open for opportunities that give me a great insight to learn and exhibit my skills efficiently.
+                            
+                            I am up for community service and would love spending time in giving to others. It has always taught me a different perspective of life and made me stay grounded at all times.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <main id="education-page">
+            <section id="education" class="education">
+                <div class="container">
+                    <div class="row">
+                        <h1>Education</h1>
+                        <table class="table">
+                            <thead class="thead-dark">
+                              <tr>
+                                <th scope="col">Years</th>
+                                <th scope="col">College/Institution</th>
+                                <th scope="col">Stream/Board</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>2020-2022</td>
+                                    <td>BITS Pilani Work Integrated Learning Programme</td>
+                                    <td>M.Tech Computer Software Engineering</td>
+                                  </tr>
+                              <tr>
+                                <td>2016-2020</td>
+                                <td>Christ University, Bangalore</td>
+                                <td>B.Tech Computer Science and Engineering</td>
+                              </tr>
+                              <tr>
+                                <td>2016</td>
+                                <td>Chennai Public Secondary, Chennai</td>
+                                <td>CBSE Board</td>
+                              </tr>
+                              <tr>
+                                <td>2014</td>
+                                <td>Bharatiya Vidya Bhavan, Tirupati</td>
+                                <td>CBSE Board</td>
+                              </tr>
+                            </tbody>
+                          </table>
+
+                          <h1 style="margin-top: 4rem;">Work Experience</h1>
+                          <table class="table">
+                            <thead class="thead-light">
+                              <tr>
+                                <th scope="col">Year of Joining</th>
+                                <th scope="col">Company Name</th>
+                                <th scope="col">Designation</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>2020</td>
+                                <td>SAP Labs Pvt Ltd India</td>
+                                <td>Scholar@SAP</td>
+                              </tr>
+                              <tr>
+                                <td>2019</td>
+                                <td>Emilda Pvt Solutions</td>
+                                <td>Intern</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                    </div>
+                </div>
+            </section>
+        </main> 
+
+        <main id="projects-page">
+            <section id="projects" class="projects">
+                <div class="container">
+                    <div class="row">
+                        <h1>Personal Projects</h1>
+                        <div style="margin: 2rem;">
+                            <h3><b>Food Website</b></h3>
+                            <p>The project is a front end website with an interactive homepage with about, menu and
+                                gallery. The funtionality of the website is the table reservation. Once the table is reserved
+                                by the user, the data gets updated in the database managed by admin.</p>
+                            <br>
+                            <h3><b>Motion Based Multimedia Control</b></h3>
+                            <p>A IOT project which allows the user to communicate with the laptop/pc to perform
+                                certain actions in video player and web browser. Actions like play/pause, page up and
+                                down, navigating between tabs etc are performed by simple hand gestures.</p>
+                            <br>
+                            <h3><b>Hospital Management</b></h3>
+                            <p>The project was based on the hospital management services provided. Front end was
+                                designed using java as a part of academic fulfillment.</p></div>
+                        
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <main id="achievements-page">
+            <section id="achievements" class="achievements">
+                <div class="container">
+                    <div class="row">
+                        <h1>Achievements</h1>
+                        <div class="col-md-10"><p>1. Received Academic Proficiency award in the year 2016 from Chennai Public School<br><br>
+
+                            2. Certificate of NDG LINUX Course by Cisco Networking Academy<br><br>
+                            3. Certificate of participation in Home Automation Workshop conducted by SkyFi Labs<br><br>
+                            4. Certificate of participation in Automation Anywhere Workshop<br><br>
+                            5. Exhibited project on Engineer’s Day 2018<br><br>
+                            6. Certificate of participation in Big Data and Hadoop Workshop conducted by SkyFi Labs<br><br>
+                            7. Certificate of completion of course on Artificial Intelligence by mycaptain<br><br>
+                            8. Certificate of CCNA Routing and Switching Course by Cisco Networking Academy<br><br>
+                            9. Received Merit Scholarship for the year 2018 from Christ University<br><br></p></div>
+
+                    </div>
+                </div>
+            </section>
+        </main>
+
+    </body>
+</html>
